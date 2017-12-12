@@ -79,8 +79,9 @@ class Sandwich extends \Illuminate\Database\Eloquent\Model
 	//Question 3.1
 
     public static function categSand5(){
-	    $categsand = self::with('categories')->get();
-	    return $categsand;
+	    $sand = self::find(5);
+        $sand->categories;
+	    return [$sand];
     }
 
     //Question 5.2

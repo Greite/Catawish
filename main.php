@@ -112,8 +112,12 @@ echo "<h2>On change le sandwich associé de la 3ème image créer</h2>";
 //Question 3.1 ne marche pas
 echo "<h2>Catégories du sandwich 5</h2>";
 $sand = Sandwich::categSand5();
-foreach ($sand as $key => $value) {
-  echo "<p>".$value."</p>";
+echo $sand[0]->nom."<br>";
+echo $sand[0]->description."<br>";
+echo $sand[0]->type_pain."<br>";
+echo "<h3>Categories associé : </h3>";
+foreach ($sand[0]->categories as $v){
+    echo $v->nom."<br>";
 }
 
 //Question 5.2
