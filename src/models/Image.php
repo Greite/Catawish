@@ -4,23 +4,25 @@
 */
 namespace catawich\models;
 
+use catawich\models\Sandwich;
+
 class Image extends \Illuminate\Database\Eloquent\Model
 {
 	protected $table = 'image';
 	protected $primaryKey = 'id';
 	public $timestamps = false;
 
-	public function sandwich(){
-		return $this->belongsTo('catawich\models\Sandwich', 's_id');
+	public function sandwich() {
+       return $this->belongsTo('catawich\models\Sandwich', 's_id');
 	}
 
-	//2.3
-	public static function listImgSand(){
-		$request = self::with('sandwich')->get();
-		return $request;
+	//Question 2.3
+	public static function allimgsand() {;
+		$sandimages = self::with("sandwich")->get();
+		return $sandimages;
 	}
 
-	//2.4
+	//Question 2.4
     public static function insertionImage($titre, $def_x, $def_y, $taille, $filename, $s_id){
         $img = new Image;
         $img->titre=$titre;
@@ -33,9 +35,9 @@ class Image extends \Illuminate\Database\Eloquent\Model
         return $img->id;
     }
 
-    //2.5
-    public static function modifIdImage3(){
-        $img = Image::find(39);
+    //Question 2.5
+    public static function modifIdImage3($id){
+        $img = Image::find($id);
         $img->s_id = 6;
         return $img->save();
     }
