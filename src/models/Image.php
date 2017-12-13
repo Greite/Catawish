@@ -1,10 +1,6 @@
 <?php
-/**
-* 
-*/
-namespace catawich\models;
 
-use catawich\models\Sandwich;
+namespace catawich\models;
 
 class Image extends \Illuminate\Database\Eloquent\Model
 {

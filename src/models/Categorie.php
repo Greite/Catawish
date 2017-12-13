@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Gauthier
- * Date: 06/12/17
- * Time: 10:47
- */
 
 namespace catawich\models;
 

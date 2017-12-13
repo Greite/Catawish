@@ -1,18 +1,16 @@
 <?php
-/**
-* 
-*/
-namespace catawich\models;
 
-use catawich\models\Image;
+namespace catawich\models;
 
 class Sandwich extends \Illuminate\Database\Eloquent\Model
 {
 	protected $table = 'sandwich';
 	protected $primaryKey = 'id';
+    protected $dates = ['deleted_at'];
 	public $timestamps = false;
 
-	public function images() {
+
+    public function images() {
        return $this->hasMany('catawich\models\Image', 's_id');
 	}
 
@@ -106,7 +104,13 @@ class Sandwich extends \Illuminate\Database\Eloquent\Model
     public static function tailleSand5(){
         $sandTaille = self::find(5);
         $sandTaille->with('tailleSandwichs');
-        return [$sandTaille];
+        return $sandTaille;
+    }
+
+    //Question 4.3
+    public static function fonction43($sand_id, $taille_id, $prix){
+        $sand = self::find($sand_id);
+        $sand->tailleSandwichs()->attach([$taille_id=>["prix"=>$prix]]);
     }
 
     /* PARTIE 5 */
