@@ -20,6 +20,10 @@ class Sandwich extends \Illuminate\Database\Eloquent\Model
 	    return $this->belongsToMany('catawich\models\Categorie', 'sand2cat', 'sand_id', 'cat_id');
     }
 
+    public function tailleSandwichs(){
+        return $this->belongsToMany('catawich\models\TailleSandwich', 'tarif', 'sand_id', 'taille_id')->withPivot("prix");
+    }
+
 	/* PARTIE 1 */
 
 	//Question 1.1
@@ -76,27 +80,65 @@ class Sandwich extends \Illuminate\Database\Eloquent\Model
 		return $sandimages;
 	}
 
-	//Question 3.1
+	/* PARTIE 3 */
 
+	//Question 3.1
     public static function categSand5(){
 	    $sand = self::find(5);
-        $sand->categories;
-	    return [$sand];
+	    return $sand;
     }
 
+    //Question 3.3
+    public static function fonction33(){
+        $sand = self::where('type_pain', 'like', '%baguette%')->get();
+        return $sand;
+    }
+
+    //Question 3.4
+    public static function fonction34($id_sand, $id_cat){
+        $sand = self::find($id_sand);
+        $sand->categories()->attach([$id_cat]);
+    }
+
+    /* PARTIE 4 */
+
+    //Question 4.1
+    public static function tailleSand5(){
+        $sandTaille = self::find(5);
+        $sandTaille->with('tailleSandwichs');
+        return [$sandTaille];
+    }
+
+    /* PARTIE 5 */
+
     //Question 5.2
+    public static function question5_2() {;
+        $request = self::find(5);
+        $images = $request->images()->where('def_x', '>', 720)->get();
+        return $images;
+    }
 
-	public static function imagessup720sand5() {;
-		$request = self::find(5);
-		$images = $request->images()->where('def_x', '>', 720)->get();
-		return [$request, $images];
-	}
+    //Question 5.3
+    public static function question5_3() {;
+        $sand = self::has('images', '>', 4)->get();
+        return $sand;
+    }
 
-	//Question 5.6
+    //Question 5.6
+    public static function question5_6() {;
+        $sand = self::whereHas('images', function($q) {
+            $q->where('type', '=', 'image/jpeg')->where('taille', '>', 18000);
+        })->get();
+        return $sand;
+    }
 
-	public static function sandimagesjpeg18000() {;
-		$request = self::find(5);
-		$images = $request->images()->where('type', '=', 'image/jpeg')->get();
-		return [$request, $images];
-	}
+    //Question 5.8
+    public static function question5_8() {;
+        $sand = self::whereHas('images', function($q) {
+            $q->where('type', '=', 'image/jpeg')->where('taille', '>', 18000);
+        })->whereHas('categories', function($q) {
+            $q->where('nom', '=', 'traditionnel');
+        })->get();
+        return $sand;
+    }
 }
