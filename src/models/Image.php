@@ -12,6 +12,8 @@ class Image extends \Illuminate\Database\Eloquent\Model
        return $this->belongsTo('catawich\models\Sandwich', 's_id');
 	}
 
+	/* PARTIE 2 */
+
 	//Question 2.3
 	public static function allimgsand() {;
 		$sandimages = self::with("sandwich")->get();

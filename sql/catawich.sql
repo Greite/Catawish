@@ -1,3 +1,5 @@
+-- Adminer 4.3.1 MySQL dump
+
 SET NAMES utf8;
 SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
@@ -68,7 +70,10 @@ INSERT INTO `image` (`id`, `titre`, `type`, `def_x`, `def_y`, `taille`, `filenam
 (33,	'le panini_7',	'image/png',	800,	768,	9600,	'img_5a045cd803833.png',	9),
 (34,	'club_1',	'image/png',	800,	600,	7500,	'img_5a0465e7cd2c0.png',	10),
 (35,	'club_2',	'image/png',	1024,	768,	12288,	'img_5a0465e7e6dad.png',	10),
-(36,	'forestier',	'image/png',	600,	400,	3750,	'img_5a0465e7eb4b8.png',	10);
+(36,	'forestier',	'image/png',	600,	400,	3750,	'img_5a0465e7eb4b8.png',	10),
+(37,	'campagnard_0',	'image/jpeg',	1920,	1080,	19200,	'img_456fdsffd4s56',	11),
+(38,	'campagnard_1',	'image/jpeg',	1920,	1080,	19201,	'img_7892fdsgfd132',	11),
+(39,	'campagnard_2',	'image/jpeg',	1920,	1080,	19202,	'img_4561gsfdgfd12',	6);
 
 DROP TABLE IF EXISTS `sand2cat`;
 CREATE TABLE `sand2cat` (
@@ -90,7 +95,9 @@ INSERT INTO `sand2cat` (`sand_id`, `cat_id`) VALUES
 (9,	4),
 (9,	16),
 (10,	3),
-(10,	5);
+(10,	5),
+(11,	1),
+(11,	3);
 
 DROP TABLE IF EXISTS `sandwich`;
 CREATE TABLE `sandwich` (
@@ -98,17 +105,20 @@ CREATE TABLE `sandwich` (
   `nom` varchar(64) NOT NULL,
   `description` text NOT NULL,
   `type_pain` text NOT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `sandwich` (`id`, `nom`, `description`, `type_pain`) VALUES
-(4,	'bucheron',	'un sandwich de bucheron : frites, fromage, saucisse, steack, lard grillés, mayo',	'baguette'),
-(5,	'jambon-beurre',	'le jambon-beurre traditionnel, avec des cornichons',	'baguette'),
-(6,	'fajitas poulet',	'fajitas au poulet avec ses tortillas de mais, comme à Puebla',	'tortillas'),
-(7,	'le forestier',	'le bon sandwich au gout de la forêt',	'baguette campagne'),
-(8,	'la mer',	'le sandwich au goût de la mer, saumon fumé ',	'mie'),
-(9,	'le panini',	'le panini napolitain authentique : jambon de parme, chèvre, olives noires, tomates séchées',	'panini'),
-(10,	'le club sandwich',	'le club sandwich comme à Saratoga : pain toasté, filet de dinde, bacon, laitue, tomate',	'mie');
+INSERT INTO `sandwich` (`id`, `nom`, `description`, `type_pain`, `deleted_at`) VALUES
+(4,	'bucheron',	'un sandwich de bucheron : frites, fromage, saucisse, steack, lard grillés, mayo',	'baguette',	NULL),
+(5,	'jambon-beurre',	'le jambon-beurre traditionnel, avec des cornichons',	'baguette',	NULL),
+(6,	'fajitas poulet',	'fajitas au poulet avec ses tortillas de mais, comme à Puebla',	'tortillas',	NULL),
+(7,	'le forestier',	'le bon sandwich au gout de la forêt',	'baguette campagne',	NULL),
+(8,	'la mer',	'le sandwich au goût de la mer, saumon fumé ',	'mie',	NULL),
+(9,	'le panini',	'le panini napolitain authentique : jambon de parme, chèvre, olives noires, tomates séchées',	'panini',	NULL),
+(10,	'le club sandwich',	'le club sandwich comme à Saratoga : pain toasté, filet de dinde, bacon, laitue, tomate',	'mie',	NULL),
+(11,	'le campagnard',	'un sandwich de paysan : pomme de terre, lard, bacon, oeuf, salade',	'baguette campagne',	NULL),
+(30,	'Sandwich delete',	'Le sandwich qu\'on supprime',	'baguette',	'2017-12-15 13:56:02');
 
 DROP TABLE IF EXISTS `taille_sandwich`;
 CREATE TABLE `taille_sandwich` (
@@ -124,6 +134,7 @@ INSERT INTO `taille_sandwich` (`id`, `nom`, `description`) VALUES
 (3,	'grosse faim',	'à partager, ou pour les affamés'),
 (4,	'ogre',	'pour les faims d\'ogres, et encore ....');
 
+SET NAMES utf8mb4;
 
 DROP TABLE IF EXISTS `tarif`;
 CREATE TABLE `tarif` (
@@ -157,4 +168,10 @@ INSERT INTO `tarif` (`taille_id`, `sand_id`, `prix`) VALUES
 (1,	10,	5.00),
 (2,	10,	6.00),
 (3,	10,	7.00),
-(4,	10,	8.00);
+(4,	10,	8.00),
+(1,	11,	7.00),
+(2,	11,	8.00),
+(3,	11,	9.00),
+(4,	11,	10.00);
+
+-- 2017-12-15 13:57:34

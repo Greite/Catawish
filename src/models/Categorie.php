@@ -13,14 +13,18 @@ class Categorie extends \Illuminate\Database\Eloquent\Model
         return $this->belongsToMany('catawich\models\Sandwich', 'sand2cat', 'cat_id', 'sand_id');
     }
 
-    //3.2
+    /* PARTIE 3 */
+
+    //Question 3.2
     public static function categorieEtSand(){
         $cat = self::with('sandwichs')->get();
         return $cat;
     }
 
-    //5.1
-    public static function question5_1(){
+    /* PARTIE 5 */
+
+    //Question 5.1
+    public static function fonction51(){
         $categ = self::where('nom', 'like', '%traditionnel%')->get();
         foreach ($categ as $value) {
             $sand[]=$value->sandwichs()->where("type_pain", "=", "baguette")->get();
@@ -28,10 +32,20 @@ class Categorie extends \Illuminate\Database\Eloquent\Model
         return $sand;
     }
 
-    //5.2
-    public static function question5_5(){
+    //Question 5.2
+    public static function fonction55(){
         $categ = self::whereHas('sandwichs', function($q) {
             $q->where('type_pain', '=', 'baguette');
+        })->get();
+        return $categ;
+    }
+
+    //Question 5.7
+    public static function fonction57() {
+        $categ = self::whereHas('sandwichs', function($a) {
+            $a->whereHas('images', function($q) {
+                $q->where('type', '=', 'image/jpeg')->where('taille', '>', 18000);
+            });
         })->get();
         return $categ;
     }

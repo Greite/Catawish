@@ -2,8 +2,12 @@
 
 namespace catawich\models;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 class Sandwich extends \Illuminate\Database\Eloquent\Model
 {
+    use SoftDeletes;
+
 	protected $table = 'sandwich';
 	protected $primaryKey = 'id';
     protected $dates = ['deleted_at'];
@@ -116,20 +120,20 @@ class Sandwich extends \Illuminate\Database\Eloquent\Model
     /* PARTIE 5 */
 
     //Question 5.2
-    public static function question5_2() {;
+    public static function fonction52() {;
         $request = self::find(5);
         $images = $request->images()->where('def_x', '>', 720)->get();
         return $images;
     }
 
     //Question 5.3
-    public static function question5_3() {;
+    public static function fonction53() {;
         $sand = self::has('images', '>', 4)->get();
         return $sand;
     }
 
     //Question 5.6
-    public static function question5_6() {;
+    public static function fonction56() {;
         $sand = self::whereHas('images', function($q) {
             $q->where('type', '=', 'image/jpeg')->where('taille', '>', 18000);
         })->get();
@@ -137,12 +141,32 @@ class Sandwich extends \Illuminate\Database\Eloquent\Model
     }
 
     //Question 5.8
-    public static function question5_8() {;
+    public static function fonction58() {;
         $sand = self::whereHas('images', function($q) {
             $q->where('type', '=', 'image/jpeg')->where('taille', '>', 18000);
         })->whereHas('categories', function($q) {
             $q->where('nom', '=', 'traditionnel');
         })->get();
         return $sand;
+    }
+
+    //Question 5.9
+    public static function fonction59(){
+        $listeTailles=self::find(7)->tailleSandwichs()->wherePivot("prix", "<", 7)->get();
+        return $listeTailles;
+    }
+
+    /* PARTIE 6 */
+
+    public static function fonction6(){
+        $sand = new Sandwich;
+        $sand->nom = "Sandwich delete";
+        $sand->description = "Le sandwich qu'on supprime";
+        $sand->type_pain = "baguette";
+        $sand->save();
+
+        $sand->delete();
+
+        return $sand->nom." supprimé";
     }
 }

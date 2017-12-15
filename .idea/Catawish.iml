@@ -4,5 +4,45 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="PHP" type="php">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/composer" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/container-interop/container-interop" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/doctrine/inflector" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/illuminate/container" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/illuminate/contracts" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/illuminate/database" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/illuminate/support" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/nesbot/carbon" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/nikic/fast-route" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/pimple/pimple" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/psr/container" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/psr/http-message" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/psr/simple-cache" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/slim/slim" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/symfony/polyfill-mbstring" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/symfony/translation" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/composer" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/container-interop/container-interop" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/doctrine/inflector" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/illuminate/container" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/illuminate/contracts" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/illuminate/database" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/illuminate/support" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/nesbot/carbon" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/nikic/fast-route" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/pimple/pimple" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/psr/container" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/psr/http-message" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/psr/simple-cache" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/slim/slim" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/symfony/polyfill-mbstring" />
+          <root url="file://$MODULE_DIR$/../../ProgWebServer/LBS/src/vendor/symfony/translation" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>

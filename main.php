@@ -160,7 +160,7 @@ echo "On évite de le faire 1000 fois";
 
 /* PARTIE 4 */
 
-//4.1
+//Question 4.1
 echo "<h2>4.1 Taille du sandwich 5</h2>";
 $tailleSand = Sandwich::tailleSand5();
 echo $tailleSand->nom."<br>";
@@ -171,7 +171,7 @@ foreach ($tailleSand->tailleSandwichs as $v){
     echo $v->nom."<br>";
 }
 
-//4.2
+//Question 4.2
 echo "<h2>4.2 Taille du sandwich 5 avec les prix</h2>";
 $tailleSand = Sandwich::tailleSand5();
 echo $tailleSand->nom."<br>";
@@ -193,43 +193,66 @@ echo "On évite de le faire 1000 fois";
 /* PARTIE 5 */
 
 //Question 5.1
-echo '<h2>5.1 : Question 5.1</h2>';
-$baguettes = Categorie::question5_1();
+echo '<h2>5.1 : Pour la catégorie dont le nom contient \'traditionnel\', lister les sandwichs dont le type_pain 
+contient \'baguette\'</h2>';
+$baguettes = Categorie::fonction51();
 foreach ($baguettes as $value) {
     echo "<p>$value</p>";
 }
 
 //Question 5.2
 echo '<h2>5.2 : liste des images du sandwich n°5 dont def_x est supérieur à 720</h2>';
-$sand5img = Sandwich::question5_2();
+$sand5img = Sandwich::fonction52();
 foreach ($sand5img as $value) {
     echo "<p>".$value."</p>";
 }
 
 //Question 5.3
-echo '<h2>5.3 : </h2>';
-$sand = Sandwich::question5_3();
+echo '<h2>5.3 : lister les sandwichs qui ont plus de 4 images associées</h2>';
+$sand = Sandwich::fonction53();
 foreach ($sand as $value) {
     echo "<p>".$value."</p>";
 }
 
 //Question 5.5
-echo '<h2>5.5 : </h2>';
-$categ = Categorie::question5_5();
+echo '<h2>5.5 : lister les catégories qui contiennent des sandwichs dont le type de pain est \'baguette\'</h2>';
+$categ = Categorie::fonction55();
 foreach ($categ as $value) {
     echo "<p>".$value."</p>";
 }
 
 //Question 5.6
-echo '<h2>5.6 : </h2>';
-$sand = Sandwich::question5_6();
+echo '<h2>5.6 : lister les sandwichs qui possèdent des images de types \'image/jpeg\' de taille > 18000</h2>';
+$sand = Sandwich::fonction56();
 foreach ($sand as $value) {
     echo "<p>".$value."</p>";
 }
 
+//Question 5.7
+echo '<h2>5.7 : catégories qui possèdent des images de types \'image/jpeg\' de taille > 18000</h2>';
+$categ = Categorie::fonction57();
+foreach ($categ as $value) {
+    echo "<p>".$value."</p>";
+}
+
 //Question 5.8
-echo '<h2>5.8 : </h2>';
-$sand = Sandwich::question5_8();
+echo '<h2>5.8 : lister les sandwichs qui possèdent des images de types \'image/jpeg\' de taille > 18000 et qui 
+sont de catégorie \'traditionnel\'</h2>';
+$sand = Sandwich::fonction58();
 foreach ($sand as $value) {
     echo "<p>".$value."</p>";
 }
+
+//Question 5.9
+echo '<h2>5.9 : pour le sandwich d\'ID 7, lister les tailles pour lequel il est disponible avec un prix < 7.0</h2>';
+$listeTaille = Sandwich::fonction59();
+foreach($listeTaille as $value){
+    echo $value->nom."<br>";
+}
+
+/* PARTIE 6 */
+
+//Question 6
+echo '<h2>6 : Rendez logique la suppression d\'objets sandwich. Vérifier dans la base qu\'un delete ne supprime pas
+la ligne</h2>';
+echo Sandwich::fonction6();
